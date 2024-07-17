@@ -7,10 +7,13 @@
 #include <string>
 #include <vector>
 
+
 class IUbuntuCloudImageFetcher {
 public:
+    // Virtual destructor
     virtual ~IUbuntuCloudImageFetcher() = default;
 
+    //Methods as required
     virtual std::vector<std::string> getAllSupportedReleases() = 0;
     virtual std::string getCurrentLTSVersion() = 0;
     virtual std::string getSha256OfDiskImage(const std::string &release) = 0;

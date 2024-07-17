@@ -37,7 +37,7 @@ UbuntuCloudImageFetcher is a command-line interface (CLI) tool written in C++ th
 1. **Update package list and install dependencies**:
     ```sh
     sudo apt-get update
-    sudo apt-get install libcurl4-openssl-dev libjsoncpp-dev
+    sudo apt-get install libcurl4-openssl-dev libjsoncpp-dev pkg-config cmake
     ```
 
 ### Building the Project

@@ -18,9 +18,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    // Initialize the fetcher by calling the constructor to fetch data from the provided URL
     UbuntuCloudImageFetcher fetcher;
 
+    // Using getopt to handle command-line arguments
     const char *short_options = "als:h";
+
+    // Defining long arguments
     const struct option long_options[] = {
             {"all", no_argument, nullptr, 'a'},
             {"lts", no_argument, nullptr, 'l'},
@@ -32,6 +36,8 @@ int main(int argc, char *argv[]) {
     int option_index = 0;
     int opt;
     while ((opt = getopt_long(argc, argv, short_options, long_options, &option_index)) != -1) {
+
+        // Checking the CL arguments and calling the corresponding methods from the fetcher object
         switch (opt) {
             case 'a': {
                 std::cout << "All Supported Releases:" << std::endl;
