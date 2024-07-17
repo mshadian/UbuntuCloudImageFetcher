@@ -76,6 +76,24 @@ public:
 
     std::string getSha256OfDiskImage(const std::string &release) override {
 
+        const Json::Value& products = jsonData["products"];
+        for (Json::ValueConstIterator it = products.begin(); it != products.end(); ++it) {
+            if (it.key().asString().find("amd64") != std::string::npos) {
+                const Json::Value &productRelease = (*it);
+                if (productRelease["release"].asString() == release) {
+                    const Json::Value& versions = productRelease["versions"];
+                    for (const auto & version : versions) {
+                        const Json::Value& items = version["items"];
+                        if (items.isObject()) {
+                            const Json::Value& img = items["disk1.img"];
+                            if (img.isObject()) {
+                                return img["sha256"].asString();
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return "";
     }
 
