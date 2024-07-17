@@ -1,0 +1,2 @@
+# UbuntuCloudImageFetcher
+UbuntuCloudImageFetcher project for Canonical
