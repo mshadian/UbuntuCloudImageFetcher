@@ -15,3 +15,19 @@ UbuntuCloudImageFetcher is a command-line interface (CLI) tool written in C++ th
 
 - C++11 or higher
 - CMake (for building the project)
+- [libcurl](https://curl.se/libcurl/) (for HTTP requests)
+- [jsoncpp](https://github.com/open-source-parsers/jsoncpp) (for JSON parsing)
+
+## Installation
+
+### Installing Dependencies on macOS
+
+1. **Install Homebrew (if not already installed)**:
+    ```sh
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+
+2. **Install `libcurl` and `jsoncpp`**:
+    ```sh
+    brew install curl jsoncpp
+    ```

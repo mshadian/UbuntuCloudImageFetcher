@@ -7,7 +7,10 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Blank main!" << std::endl;
+    std::cout << "Fetcher initialization!" << std::endl;
+    UbuntuCloudImageFetcher fetcher;
+
+
 
     return 0;
 }
