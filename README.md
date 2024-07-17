@@ -9,7 +9,7 @@ UbuntuCloudImageFetcher is a command-line interface (CLI) tool written in C++ th
 
 - **List all supported Ubuntu releases**: Fetches and lists all currently supported Ubuntu releases for `amd64` architecture.
 - **Get the current LTS version**: Identifies and returns the latest Ubuntu LTS version for `amd64` architecture.
-- **Get sha256 checksum**: Returns the sha256 checksum of the `disk1.img` item for a specified Ubuntu release and `amd64` architecture.
+- **Get sha256 checksum**: Returns the sha256 checksum of the `disk1.img` item for a specified Ubuntu release and `amd64` architecture. Note: if there are multiple versions for the given release, the latest version is considered.
 
 ## Requirements
 

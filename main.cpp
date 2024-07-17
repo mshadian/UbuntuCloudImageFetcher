@@ -16,7 +16,7 @@ int main() {
     }
 
 
-    std::string release = "saucy"; // Example release name
+    std::string release = "noble"; // Example release name
     std::cout << "SHA256 of disk1.img for " << release << ": " << fetcher.getSha256OfDiskImage(release) << std::endl;
 
 
