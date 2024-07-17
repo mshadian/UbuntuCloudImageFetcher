@@ -58,8 +58,15 @@ public:
 
     std::vector<std::string> getAllSupportedReleases() override {
 
-        const std::vector<std::string> res = {};
-        return res;
+        std::vector<std::string> releases;
+        const Json::Value& products = jsonData["products"];
+        for (Json::ValueConstIterator it = products.begin(); it != products.end(); ++it) {
+            if (it.key().asString().find("amd64") != std::string::npos){
+                releases.push_back(it.key().asString());
+            }
+
+        }
+        return releases;
     }
 
     std::string getCurrentLTSVersion() override {

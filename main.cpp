@@ -10,6 +10,12 @@ int main() {
     std::cout << "Fetcher initialization!" << std::endl;
     UbuntuCloudImageFetcher fetcher;
 
+    std::cout << "All Supported Releases:" << std::endl;
+    for (const auto& release : fetcher.getAllSupportedReleases()) {
+        std::cout << release << std::endl;
+    }
+
+
 
 
     return 0;
