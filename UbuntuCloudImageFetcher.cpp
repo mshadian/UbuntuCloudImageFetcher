@@ -49,6 +49,7 @@ private:
         return true;
     }
 
+
 public:
     UbuntuCloudImageFetcher() {
         if (!fetchData()) {
@@ -70,8 +71,22 @@ public:
     }
 
     std::string getCurrentLTSVersion() override {
+        const Json::Value& products = jsonData["products"];
+        std::string latestLTSString;
+        Json::ValueConstIterator latestLTS;
 
-        return "";
+
+        for (Json::ValueConstIterator it = products.begin(); it != products.end(); ++it) {
+            if (it.key().asString().find("amd64") != std::string::npos){
+                const Json::Value &product = *it;
+                if (product["release_title"].asString().find("LTS") != std::string::npos && product["version"].asString() > latestLTSString) {
+                    latestLTSString = product["version"].asString();
+                    latestLTS = it;
+                }
+            }
+        }
+        return (*latestLTS)["release_codename"].asString() + " (" + latestLTS.key().asString() + ")";// latestLTS["release_codename"].asString() ;
+
     }
 
     std::string getSha256OfDiskImage(const std::string &release) override {

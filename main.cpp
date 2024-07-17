@@ -7,19 +7,19 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Fetcher initialization!" << std::endl;
     UbuntuCloudImageFetcher fetcher;
+    std::cout << "Fetcher initialization complete!" << std::endl;
+
 
     std::cout << "All Supported Releases:" << std::endl;
     for (const auto& release : fetcher.getAllSupportedReleases()) {
         std::cout << release << std::endl;
     }
 
+    std::cout << fetcher.getCurrentLTSVersion() << std::endl;
 
     std::string release = "noble"; // Example release name
     std::cout << "SHA256 of disk1.img for " << release << ": " << fetcher.getSha256OfDiskImage(release) << std::endl;
-
-
 
     return 0;
 }
